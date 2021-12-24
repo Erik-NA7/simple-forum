@@ -1,0 +1,15 @@
+.featured {
+
+}
+
+.action {
+  display: flex;
+}
+
+.action p {
+  margin: 0;
+}
+
+.action .points {
+  margin-right: .5em;
+}
