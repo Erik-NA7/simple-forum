@@ -1,5 +1,9 @@
-.featured {
+.comment {
+  background: var(--grey);
+}
 
+.reply{
+  margin-left: 300px;
 }
 
 .action {

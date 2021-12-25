@@ -4,7 +4,7 @@ import style from './Post.module.css'
 
 function PostContent(props) {
   const post = props.featuredPost  
-  console.log(post)
+  // console.log(post)
   return (
     <div className='container'>
       <main>

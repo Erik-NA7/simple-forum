@@ -6,14 +6,14 @@
       "body": "Mau tanya, akhir-akhir ini webcam sering nyala sendiri. Apakah ada yang tahu penyebanya dan solusi untuk memperbaiki hal itu? Apakah ada kemungkinan laptop saya dihack karena kasus terjadi tiap terkoneksi di Internet.",
       "comments": [
         {
-          "id":"c1",
+          "id":"p1c1",
           "comment": "Mungkin ada fenomena paranormal yang tidak bisa dijelaskan. Lebih baik nyala mati sendiri daripada tidak nyala sama sekali",
           "user": "Neal Topham",
           "dateTime": "08 February 2017 07:30",
           "points": 3,
           "replies": [
             {
-              "id": "r1",
+              "id": "c1r1",
               "comment": "Confirm, itu kemungkinan aktivitas paranormal",
               "user": "Dyan Shankin",
               "dateTime": "08 February 2017 07:33",
@@ -22,21 +22,21 @@
           ]
         },
         {
-          "id":"c2",
+          "id":"p1c2",
           "comment": "Saya mengalami hal serupa. Laptop yang digunakan Toshiba L64. Tolong infonya",
           "user": "Jacquelyne Garrity",
           "dateTime": "08 February 2017 07:32",
           "points": 0,
           "replies": [
             {
-              "id": "r1",
+              "id": "c2r1",
               "comment": "Ada kemungkinan masalah virus. Coba dilakukan virus scan menggunakan software anti virus",
               "user": "Shella Tamashiro",
               "dateTime": "09 February 2017 07:33",
               "points": 1
             },
             {
-              "id": "r2",
+              "id": "c2r2",
               "comment": "Setuju",
               "user": "Shella Tamashiro",
               "dateTime": "09 February 2017 07:37",
@@ -45,12 +45,12 @@
           ]
         },
         {
-          "id":"c3",
+          "id":"p1c3",
           "comment": "Apakah ada solusi lain? Sudah dicoba untuk scan virus tapi kasus ini tetap ada",
           "user": "Lawanda Schey",
           "dateTime": "09 February 2017 07:32",
           "points": 1,
-          "replies":[{}]
+          "replies":[]
         }
       ]
     }
