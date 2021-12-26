@@ -109,14 +109,26 @@ const Register = (props) => {
     }
   }
 
+  let formIsValid = false
+
+  if (nameIsValid && emailIsValid && passwordIsValid) {
+    formIsValid = true
+  }
+
   const onSubmitHandler = event => {
     event.preventDefault()
-    if (!nameIsValid && !emailIsValid && !passwordIsValid) {
+    if (!formIsValid) {
       return
     }
     setName('')
-    setPassword('')
+    setNameIsValid(false)
+    setNameIsTouched(false)
     setEmail('')
+    setEmailIsValid(false)
+    setEmailIsTouched(false)
+    setPassword('')
+    setPasswordIsValid(false)
+    setPasswordIsTouched(false)
     resetClass()
   }
   
@@ -157,7 +169,7 @@ const Register = (props) => {
           {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
         </div>
         <div className={style['form-actions']}>
-          <button disabled={!nameIsValid && !emailIsValid && !passwordIsValid}>Create account</button>
+          <button disabled={!formIsValid}>Create account</button>
         </div>
       </form>
     </div>
