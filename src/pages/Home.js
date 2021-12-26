@@ -1,15 +1,11 @@
 import { useState, useEffect} from 'react'
-import { FaArrowDown } from 'react-icons/fa'
-import { FaArrowUp} from 'react-icons/fa'
+import TopFiveDiscussions from '../components/Aside/TopFiveDiscussions'
 import Comment from '../components/Comment/Comment'
-import Reply from '../components/Reply/Reply'
-import style from '../components/Main/Post.module.css'
-import Post from '../components/Main/Post'
-
+import style from '../components/Post.module.css'
 
 function Home() {
+  const [ featuredPost, setFeaturedPost ] = useState({})
   const [ posts, setPosts ] = useState([])
-  // const [ featuredPost, setFeaturedPost ] = useState({})
 
   useEffect(() => {
     const getData = async() => {
@@ -18,8 +14,8 @@ function Home() {
         throw new Error('Something went wrong')
       }
       const data = await response.json()
-      setPosts(data)
-      // setFeaturedPost(data[0])
+      setFeaturedPost(data[0])
+      setPosts(data.slice(1, 6))
     }
 
     try {
@@ -33,51 +29,54 @@ function Home() {
     }
   }, [])
 
-  // console.log(posts)
+  console.log(posts)
+  console.log(featuredPost)
 
   return (
-    <div className='container'>
-      <main>
-        {posts.map((post, id) => {
-          return (
-            <article key={id} className={style.featured}>
-              <h1>{post.title}</h1>  
-              <p>{post.body}</p>
-              <h2>Komentar</h2>
-              {post.comments && post.comments.map((comment, id) => {
-                return (
-                <div key={id} className={style.comment}>
-                  <Comment
-                    user={comment.user}
-                    dateTime={comment.dateTime}
-                    comment={comment.comment}
-                    points={comment.points}
-                  />
-                  {console.log(comment.replies)}
-                  {comment.replies && <Reply data={comment.replies}/>}
-                  {/* {comment.replies && comment.replies.map((reply, id) => {
-                    return (
-                    <div className={style.reply}>
-                      <Reply
-                        key={id}
-                        user={reply.user}
-                        dateTime={reply.dateTime}
-                        comment={reply.comment}
-                        points={reply.points}
-                      />  
-                    </div>
-                    )
-                  })} */}
+    <div className='container content'>
+      <main className='main-content'>
+        <article className={style.posts}>
+          <div className={style['post-main']}>
+            <h1>{featuredPost.title}</h1>  
+            <p>{featuredPost.body}</p>
+          </div>          
+          <h2>Komentar</h2>
+          {featuredPost.comments &&
+            <div className={style['comment-container']}>
+              {featuredPost.comments.map((comment, id) => {
+              return (
+              <div className={style.comments} key={id} >
+                <Comment
+                  key={id}
+                  user={comment.user}
+                  dateTime={comment.dateTime}
+                  comment={comment.comment}
+                  points={comment.points}
+                />
+                {comment.replies && 
+                <div className={style.reply}>
+                  {comment.replies.map((reply, id) => {
+                  return (
+                    <Comment
+                      key={id}
+                      user={reply.user}
+                      dateTime={reply.dateTime}
+                      comment={reply.comment}
+                      points={reply.points}
+                    />
+                  )
+                  })}
                 </div>
-                )
-              })}
-            </article>
-          )
-        })}
+                }  
+              </div>
+              )
+            })}
+            </div>
+          }
+        </article>
       </main>
+      <TopFiveDiscussions data={posts}/>  
     </div> 
-      // <Post featuredPost={featuredPost}>Post Content</Post>
-    
   )
 }
 

@@ -38,7 +38,7 @@
             {
               "id": "c2r2",
               "comment": "Setuju",
-              "user": "Shella Tamashiro",
+              "user": "Marcelino Stangle",
               "dateTime": "09 February 2017 07:37",
               "points": 1
             }
@@ -53,6 +53,37 @@
           "replies":[]
         }
       ]
+    },
+    {
+      "id": "p2",
+      "title": "Bersihkan laptop dari butiran debu",
+      "body": "",
+      "comments": []
+    },
+    {
+      "id": "p3",
+      "title": "Cara akses webssite menggunakan koneksi openVPN",
+      "body": "",
+      "comments": []
+    },
+    {
+      "id": "p4",
+      "title": "Batas aman overclock PC rakitan",
+      "body": "",
+      "comments": []
+    },
+    {
+      "id": "p5",
+      "title": "Cara mengetahui akun Facebook di-hack melalui aplikasi",
+      "body": "",
+      "comments": []
+    },
+    {
+      "id": "p6",
+      "title": "Tutorial: Langkah-langkah mencegah website untuk track user",
+      "body": "",
+      "comments": []
     }
+
   ]
 }

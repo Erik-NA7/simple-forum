@@ -6,28 +6,36 @@ import { FaSearch } from 'react-icons/fa'
 
 function Header() {
 
-
   return (
-    <header className='App-header'>
+    <header className={style['App-header']}>
       <div className='container'>
         <div className={style['nav-brand']}>
-          <h3>Forum anak IT</h3>
+          <h2>Forum anak IT</h2>
         </div>
       <nav className={style.navbar}>
         <div className={style['search-container']}>
           <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
           <FaSearch className={style['fa-search']}/>
-          {/* <FontAwesomeIcon icon={faSearch} className={style['fa-search']}/> */}
         </div>
-        <ul className={style['nav-menu']}>
-          <li className={style['nav-item']}>Categories</li>
-          <li className={style['nav-item']}>Login</li>
-          <li className={style['nav-item']}>Register</li>
-        </ul>
+        <div className={style['nav-menu']}>
+          <div class={style['dropdown']}>
+            <button class={style['dropbtn']}>Categories</button>
+            <div class={style['dropdown-content']}>
+              <menu>
+                <li>Linux</li>
+                <li>Windows</li>
+                <li>MAC OS</li>
+                <li>Android</li>
+                <li>iOS</li>
+              </menu>
+            </div>
+          </div>
+          <button>Login</button>
+          <button>Register</button>
+        </div>
       </nav>
       </div>
     </header>
-    
   )
 }
 
