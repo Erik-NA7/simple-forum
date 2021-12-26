@@ -10,10 +10,14 @@
   background: white;
 }
 
+.login-form h2 {
+  margin-top: 0;
+}
+
 .close-modal {
   text-align: right;
-  margin-bottom: -14px;
-  margin-right: -14px;
+  margin-bottom: -16px;
+  margin-right: -12px;
 }
 
 .close-modal span {
@@ -25,6 +29,7 @@
 .close-modal span:hover {
   cursor: pointer;
 }
+
 .form-control {
   margin-bottom: 1rem;
 }
@@ -39,20 +44,17 @@
   margin-bottom: 0.5rem;
 }
 
-.form-control input,
-.form-control select {
+.form-control input {
   font: inherit;
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 20rem;
+  width: 30rem;
   max-width: 100%;
 }
 
 .form-control input:focus {
   outline: none;
-  border-color: #240370;
-  background-color: #e0d4fd;
 }
 
 .control-group {
@@ -100,15 +102,19 @@ button:disabled:active {
 }
 
 .invalid input {
-  border: 1px solid #b40e0e;
-  background-color: #fddddd;
+  border: 1px solid var(--red);
+  /* background-color: #fddddd; */
 }
 
 .invalid input:focus {
-  border-color: #ff8800;
-  background-color: #fbe8d2;
+  border-color: var(--red);
+  /* background-color: #fbe8d2; */
+}
+
+.valid input {
+  border: 1px solid var(--green); 
 }
 
 .error-text {
-  color: #b40e0e;
+  color: var(--red);
 }

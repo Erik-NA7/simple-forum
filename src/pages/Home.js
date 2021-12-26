@@ -29,9 +29,6 @@ function Home() {
     }
   }, [])
 
-  console.log(posts)
-  console.log(featuredPost)
-
   return (
     <div className='container content'>
       <main className='main-content'>

@@ -65,6 +65,10 @@
   border: none;
 }
 
+.nav-menu button:hover {
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

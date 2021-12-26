@@ -1,12 +1,12 @@
 import Header from './components/Header/Header'
 import Home from './pages/Home';
 import Modal from 'react-modal';
-import Login from './components/LoginForm/Login'
-import Register from './components/Register/Register'
+import Login from './components/Forms/Login'
+import Register from './components/Forms/Register'
 import { useState } from 'react'
 import './App.css';
 
-// Modal.setAppElement('#root')
+Modal.setAppElement('#root')
 
 function App() {
 

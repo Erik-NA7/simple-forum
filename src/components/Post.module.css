@@ -86,3 +86,7 @@
   border: none;
   background: var(--grey);
 }
+
+.action button:hover {
+  cursor: pointer;
+}
