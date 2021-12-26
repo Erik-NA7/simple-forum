@@ -8,7 +8,6 @@ p {
 }
 
 .main-content {
-  /* max-width: 880px; */
   border-right: 1px solid rgb(218, 218, 218)
 }
 
@@ -23,3 +22,34 @@ p {
 .content {
   margin-top:  100px;
 }
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+  
+.modalContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+}
+
+@media (max-width:539px) {
+  .modalContent {
+    left: 0;
+  }
+}
+

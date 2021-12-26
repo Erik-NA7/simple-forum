@@ -3,6 +3,10 @@
   src: local('Sans-web'),url(./fonts/PT_Sans-Web-Regular.ttf) format('trutype');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Sans-Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

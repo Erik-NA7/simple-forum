@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-function Header() {
+function Header(props) {
 
   return (
     <header className={style['App-header']}>
@@ -18,9 +18,9 @@ function Header() {
           <FaSearch className={style['fa-search']}/>
         </div>
         <div className={style['nav-menu']}>
-          <div class={style['dropdown']}>
-            <button class={style['dropbtn']}>Categories</button>
-            <div class={style['dropdown-content']}>
+          <div className={style['dropdown']}>
+            <button className={style['dropbtn']}>Categories</button>
+            <div className={style['dropdown-content']}>
               <menu>
                 <li>Linux</li>
                 <li>Windows</li>
@@ -30,8 +30,8 @@ function Header() {
               </menu>
             </div>
           </div>
-          <button>Login</button>
-          <button>Register</button>
+          <button onClick={props.onLogin}>Login</button>
+          <button onClick={props.onRegister}>Register</button>
         </div>
       </nav>
       </div>

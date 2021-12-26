@@ -7,7 +7,7 @@ function TopFiveDiscussions(props) {
       <div>
         {props.data && props.data.map((post, id) => {
           return (
-            <div className={style['top-posts']}>
+            <div key={id} className={style['top-posts']}>
               <span className={style['post-number']}>
                 {id + 1}</span>
               <p key={id}>{post.title}</p>
