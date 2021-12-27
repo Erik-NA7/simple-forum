@@ -118,6 +118,12 @@ const Register = (props) => {
   const onSubmitHandler = event => {
     event.preventDefault()
     if (!formIsValid) {
+      setNameIsTouched(true)
+      setEmailIsTouched(true)
+      setPasswordIsTouched(true)
+      invalidClass(setNameInputClass)
+      invalidClass(setEmailInputClass)
+      invalidClass(setPasswordInputClass)
       return
     }
     setName('')
@@ -150,7 +156,6 @@ const Register = (props) => {
         <div className={emailInputClass}>
           <label htmlFor='name'>Email</label>
           <input
-            className={emailInputClass}
             type='email'
             id='email'
             value={email}
@@ -169,7 +174,7 @@ const Register = (props) => {
           {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
         </div>
         <div className={style['form-actions']}>
-          <button disabled={!formIsValid}>Create account</button>
+          <button type='submit'>Create account</button>
         </div>
       </form>
     </div>

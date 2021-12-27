@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react'
 import TopFiveDiscussions from '../components/Aside/TopFiveDiscussions'
 import Comment from '../components/Comment/Comment'
+import CommnetForm from '../components/Forms/Comment'
 import style from '../components/Post.module.css'
 
 function Home() {
@@ -71,6 +72,7 @@ function Home() {
             </div>
           }
         </article>
+        <CommnetForm/>
       </main>
       <TopFiveDiscussions data={posts}/>  
     </div> 

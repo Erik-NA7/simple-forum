@@ -7,6 +7,7 @@
 
 .aside > h4 {
   margin-top: 0;
+  margin-bottom: .5em;
 }
 
 .top-posts {
@@ -26,6 +27,12 @@
   background: var(--brown-dark);
 }
 
-.top-posts p {
+.top-posts a {
   line-height: 2em;
+  font-size: .9em;
+}
+
+.top-posts a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
