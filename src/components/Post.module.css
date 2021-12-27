@@ -108,3 +108,13 @@
 .vote-action button:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width:768px) {
+  .avatar {
+    width: 80px;
+  }
+  .reply {
+    padding-left: 110px;
+  }
+
+}

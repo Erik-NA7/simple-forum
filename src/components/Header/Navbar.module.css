@@ -2,16 +2,24 @@
   position: fixed;
   top: 0;
   background-color: var(--brown);
-  height: 60px;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
   color: white;
+  width: 100%;
+}
+
+.nav {
+  height: 60px;
 }
 
 .nav-brand {
-  width: 16%;
+  width: 18%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-toggle:hover {
+  cursor: pointer;
 }
 
 .nav-brand h2 {
@@ -23,14 +31,15 @@
   justify-content: space-between;
   align-items: center;
   width: 82%;
-  height: 60px;
+  height: 100%
 }
 
 .search-container {
   display: flex;
   align-items: center;
-  height: 70%;
+  justify-content: space-between;
   width: 69%;
+  height: 75%;
   background-color: var(--grey);
   border-radius: 5px;
 }
@@ -41,10 +50,9 @@
 
 .searchbox {
   font-size: 1em;
-  font-weight: 700;
   border: none;
+  width: 90%;
   height: 100%;
-  width: 95%;
   padding: 0 1em;
   background-color: transparent;
 }
@@ -56,6 +64,8 @@
 
 .fa-search {
   color: var(--brown-dark);
+  width: 8%;
+  text-align: center;
 }
 
 .nav-menu {
@@ -66,7 +76,7 @@
   text-align: center;
 }
 
-.nav-menu button {
+.navbar button {
   color: white;
   font-size: .8rem;
   border: none;
@@ -77,7 +87,7 @@
   padding: 1em;
 }
 
-.nav-menu button:hover,
+.navbar button:hover,
 .dropdown:hover {
   cursor: pointer;
   background-color: black;
@@ -85,7 +95,6 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
   flex-grow: 1;
 }
 
@@ -93,22 +102,21 @@
   position: absolute;
   background-color: var(--black);
   min-width: 200px;
-  z-index: 1;
   text-align: start;
-  visibility: hidden;
+  display: hidden;
   opacity: 0;
   transition: 1s;
-}
-
-.dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
 }
 
 .dropdown-content menu {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
 }
 
 .dropdown-content li {
@@ -121,4 +129,36 @@
 .dropdown-content li:hover {
   background-color: black;
   cursor: pointer;
+}
+
+@media only screen and (max-width:1024px) {
+  .nav, .navbar {
+    flex-direction: column;
+  }
+  
+  .dropdown-content {
+   display: block;
+  }
+  
+  .nav-brand {
+    width: 100%;
+  }
+
+  .nav-brand {
+    height: 60px;
+  }
+  
+  .search-container {
+    height: 45px;
+  }
+
+  .nav-menu {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .nav-menu, .search-container {
+    width: 100%;
+  }
 }
