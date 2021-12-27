@@ -46,7 +46,7 @@
   width: auto;
   display: flex;
   flex-direction: column;
-  padding-left: 2em;
+  padding-left: 1em;
 }
 
 .user-name {
@@ -58,10 +58,8 @@
 }
 
 .reply {
-  padding-left: 150px;
   display: flex;
   flex-direction: column;
-  width: fit-content;
 }
 
 .reply .avatar {
@@ -107,4 +105,10 @@
 
 .vote-action button:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width:768px) {
+  .avatar {
+    width: 80px;
+  }
 }
