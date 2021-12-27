@@ -19,9 +19,6 @@ function Comment(props) {
   }
   
   const pointsDown = () => {
-    if (points === 0) {
-      return
-    }
     setPoints(points - 1)
     setDownVoteClass(style.downvoted)
     setHasVoted(true)

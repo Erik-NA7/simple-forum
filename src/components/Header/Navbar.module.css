@@ -28,22 +28,25 @@
 
 .search-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  /* justify-content: space-between; */
   height: 70%;
   width: 70%;
   background-color: var(--grey);
   border-radius: 5px;
 }
 
-.search-container:focus {
+.search-container:focus-within {
   background-color: white;
 }
 
 .searchbox {
+  font-size: 1em;
+  font-weight: 700;
   border: none;
   height: 100%;
-  width: 90%;
+  width: 95%;
+  padding: 0 1em;
   background-color: transparent;
 }
 
@@ -61,12 +64,12 @@
   justify-content: space-around;
   width: 25%;
   height: 100%;
-  font-size: .8em;
+  font-size: 1em;
 }
 
 .nav-menu button {
   color: white;
-  font-size: .9rem;
+  font-size: .8rem;
   background: none;
   border: none;
   height: 100%;
@@ -105,7 +108,7 @@
 }
 
 .dropdown-content li {
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   color: white;
   padding: 16px 16px;
   list-style: none;

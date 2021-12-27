@@ -10,7 +10,7 @@ function TopFiveDiscussions(props) {
             <div key={id} className={style['top-posts']}>
               <span className={style['post-number']}>
                 {id + 1}</span>
-              <p key={id}>{post.title}</p>
+              <a key={id}>{post.title}</a>
             </div>
           )
         })}
