@@ -50,22 +50,22 @@ function Home() {
                   dateTime={comment.dateTime}
                   comment={comment.comment}
                   points={comment.points}
+                  children={comment.replies && 
+                    <div className={style.reply}>
+                      {comment.replies.map((reply, id) => {
+                      return (
+                        <Comment
+                          key={id}
+                          user={reply.user}
+                          dateTime={reply.dateTime}
+                          comment={reply.comment}
+                          points={reply.points}
+                        />
+                      )
+                      })}
+                    </div>
+                    }  
                 />
-                {comment.replies && 
-                <div className={style.reply}>
-                  {comment.replies.map((reply, id) => {
-                  return (
-                    <Comment
-                      key={id}
-                      user={reply.user}
-                      dateTime={reply.dateTime}
-                      comment={reply.comment}
-                      points={reply.points}
-                    />
-                  )
-                  })}
-                </div>
-                }  
               </div>
               )
             })}

@@ -50,6 +50,7 @@ function Comment(props) {
             disabled={hasVoted}>
               <FaArrowDown style={arrowIconStyle}/></button>
         </div>
+        <div>{props.children}</div>
       </div>
     </div>    
   )
