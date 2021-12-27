@@ -70,6 +70,7 @@
 
 .vote-action {
   display: flex;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -84,8 +85,8 @@
 .vote-action button {
   color: var(--black);
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-left: .2em;
   border: none;
   background: var(--grey);

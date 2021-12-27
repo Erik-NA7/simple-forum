@@ -1,8 +1,8 @@
 .aside {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  align-self: flex-start;
+  width: 45%;
+  padding-left: 1em;
 }
 
 .aside > h4 {
@@ -20,7 +20,7 @@
 .post-number {
   font-size: .8em;
   font-weight: 700;
-  margin-right: 20px ;
+  margin-right: 1em ;
   text-align: center;
   color: azure;
   padding: 0.25em .5em;

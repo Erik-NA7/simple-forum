@@ -6,6 +6,10 @@ import avatar from '../../assets/logo192.png'
 
 function Comment(props) {
 
+  const arrowIconStyle = {
+    width: '.9em', height: '.9em', strokeWidth: '10'
+  }
+
   const [ upVoteClass, setUpVoteClass ] = useState(style['upvote-btn'])
   const [ downVoteClass, setDownVoteClass ] = useState(style['downvote-btn'])
   const [ hasVoted, setHasVoted ] = useState(false)
@@ -39,12 +43,12 @@ function Comment(props) {
             className={upVoteClass}
             onClick={pointsUp}
             disabled={hasVoted}>
-              <FaArrowUp style={{ width: '.7em'}}/></button>
+              <FaArrowUp style={arrowIconStyle}/></button>
           <button
             className={downVoteClass}
             onClick={pointsDown}
             disabled={hasVoted}>
-              <FaArrowDown style={{ width: '.7em'}}/></button>
+              <FaArrowDown style={arrowIconStyle}/></button>
         </div>
       </div>
     </div>    
