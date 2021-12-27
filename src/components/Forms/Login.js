@@ -84,6 +84,15 @@ const BasicForm = (props) => {
 
   const onSubmitHandler = event => {
     event.preventDefault()
+    
+    if (!formIsValid) {
+      setEmailIsTouched(true)
+      setPasswordIsTouched(true)
+      invalidClass(setEmailInputClass)
+      invalidClass(setPasswordInputClass)
+      return
+    }
+
     setEmail('')
     setEmailIsValid(false)
     setEmailIsTouched(false)
@@ -119,7 +128,7 @@ const BasicForm = (props) => {
           {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
         </div>
         <div className={style['form-actions']}>
-          <button disabled={!formIsValid}>Login</button>
+          <button type='submit'>Login</button>
         </div>
       </form>
     </div>

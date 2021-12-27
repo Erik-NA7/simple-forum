@@ -1,6 +1,8 @@
 .posts {
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgb(218, 218, 218);
 }
 
 .posts > h2 {
@@ -66,27 +68,42 @@
   width: 80px;
 }
 
-.action {
+.vote-action {
   display: flex;
   margin-top: 20px;
 }
 
-.action p {
+.vote-action p {
   margin: 0;
 }
 
-.action .points {
+.vote-action .points {
   margin-right: .5em;
 }
 
-.action button {
+.vote-action button {
+  color: var(--black);
+  padding: 0;
   width: 30px;
   height: 30px;
-  margin: 0 2px;
+  margin-left: .2em;
   border: none;
   background: var(--grey);
 }
 
-.action button:hover {
+.upvote-btn:hover,
+.vote-action .upvoted {
+  color: white;
+  background-color: var(--green);
+}
+
+
+.downvote-btn:hover,
+.vote-action .downvoted {
+  color: white;
+  background-color: var(--red); 
+}
+
+.vote-action button:hover {
   cursor: pointer;
 }
