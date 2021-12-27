@@ -1,8 +1,6 @@
 import React from 'react'
 import style from './Navbar.module.css'
 import { FaSearch } from 'react-icons/fa'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Header(props) {
 
@@ -19,7 +17,7 @@ function Header(props) {
         </div>
         <div className={style['nav-menu']}>
           <div className={style['dropdown']}>
-            <button className={style['dropbtn']}>Categories</button>
+            <button>Categories</button>
             <div className={style['dropdown-content']}>
               <menu>
                 <li>Linux</li>
