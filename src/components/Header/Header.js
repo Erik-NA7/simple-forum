@@ -7,9 +7,19 @@ import style from './Navbar.module.css'
 function Header(props) {
 
   const [ showMobileNav, setshowMobileNav ] = useState(false)
+  const [ animateNav, setAnimateNav ] = useState('')
 
   const onToggleNav = () => {
-    setshowMobileNav(!showMobileNav)
+    if (showMobileNav) {
+      setAnimateNav('exit')
+      setTimeout(()=> {
+        setshowMobileNav(!showMobileNav)
+      }, 790)
+    }
+    if (!showMobileNav) {
+      setAnimateNav('entry')
+      setshowMobileNav(!showMobileNav)
+    }
   }
 
   return (
@@ -43,8 +53,10 @@ function Header(props) {
         </nav>
       </div>
     </header>
-    { showMobileNav && <MobileNav
+    { <MobileNav
+      show={showMobileNav}
       onClose={onToggleNav}
+      animate={animateNav}
       onLogin={props.onLogin}
       onRegister={props.onRegister}
       />}

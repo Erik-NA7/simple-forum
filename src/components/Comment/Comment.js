@@ -7,7 +7,7 @@ import avatar from '../../assets/logo192.png'
 function Comment(props) {
 
   const arrowIconStyle = {
-    width: '.9em', height: '.9em', strokeWidth: '10'
+    width: '.9em', height: '.9em', strokeWidth: '30'
   }
 
   const [ upVoteClass, setUpVoteClass ] = useState(style['upvote-btn'])

@@ -1,11 +1,45 @@
-import { FaSearch } from 'react-icons/fa'
+import styled, { keyframes } from 'styled-components'
 import WindowClose from '../Icons/WindowClose'
 import style from './Mobilenav.module.css'
+import { FaSearch } from 'react-icons/fa'
 
-function MobileNav(props) {
+const MobNav = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 100%;
+  padding: 16px;
+  background: var(--black);
+  display: ${props => props.show ? 'flex' : 'none'};
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  animation-name: ${props => props.animate === 'entry' ? slideLeft : slideRight};
+  animation-duration:  800ms;
+`
 
+const slideLeft = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`
+
+const slideRight = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`
+
+export default function MobileNav(props) {
   return (
-    <div className={style['mobile-nav']}>
+    <MobNav animate={props.animate} show={props.show}>
       <WindowClose onClose={props.onClose}/>
       <div className={style['search-container']}>
         <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
@@ -21,8 +55,6 @@ function MobileNav(props) {
         <button onClick={props.onLogin}>Login</button>
         <button onClick={props.onRegister}>Register</button>
       </div>
-    </div>
+    </MobNav>
   )
-}
-
-export default MobileNav
+} 
