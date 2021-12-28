@@ -1,4 +1,3 @@
-// import Header from './components/Header/Header'
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Modal from 'react-modal';
@@ -19,16 +18,32 @@ function App() {
       <Header onLogin={() => setLoginIsOpen(true)} onRegister={() => setRegisterIsOpen(true)}/>
       <Home className='main'/>
       <Modal
-        className='modalContent'
-        overlayClassName='modalOverlay'
+        className={{
+          base: 'modalContent',
+          beforeClose: 'modalContentOff'
+        }}
+        overlayClassName={{
+          base: 'modalOverlay',
+          beforeClose: 'modalOverlayOff'
+        }}
+        onRequestClose={loginIsOpen}
         isOpen={loginIsOpen}
+        closeTimeoutMS={790}
       >
         <Login onClose={() => setLoginIsOpen(false)}/>
       </Modal>
       <Modal
-        className='modalContent'
-        overlayClassName='modalOverlay'
+       className={{
+        base: 'modalContent',
+        beforeClose: 'modalContentOff'
+        }}
+        overlayClassName={{
+          base: 'modalOverlay',
+          beforeClose: 'modalOverlayOff'
+        }}
+        onRequestClose={registerIsOpen}
         isOpen={registerIsOpen}
+        closeTimeoutMS={790}
       >
         <Register onClose={() => setRegisterIsOpen(false)}/>
       </Modal>
