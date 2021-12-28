@@ -1,4 +1,5 @@
-import Header from './components/Header/Header'
+// import Header from './components/Header/Header'
+import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Modal from 'react-modal';
 import Login from './components/Forms/Login'

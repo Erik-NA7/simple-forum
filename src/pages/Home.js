@@ -32,7 +32,7 @@ function Home() {
 
   return (
     <div className='container content'>
-      <main className='main-content'>
+      <main className={style['main-content']}>
         <article className={style.posts}>
           <div className={style['post-main']}>
             <h1>{featuredPost.title}</h1>  
