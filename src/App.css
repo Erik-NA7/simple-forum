@@ -46,9 +46,42 @@ p {
   animation-duration: .8s;
 }
 
+.modalOverlayOff {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: fadeOut;
+  animation-duration: .8s;
+}
+  
+.modalContentOff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  animation-name: fadeOut;
+  animation-duration: .8s;
+}
+
 @keyframes fadeIn {
   from { opacity: 0;}
   to { opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from { opacity: 1;}
+  to { opacity: 0;}
 }
 
 @media only screen and (max-width:1024px) {
