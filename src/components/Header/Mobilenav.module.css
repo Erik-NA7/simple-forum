@@ -1,8 +1,8 @@
-.mobile-nav {
+/* .mobile-nav {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 90%;
   height: 100%;
   padding: 16px;
   background: var(--black);
@@ -10,11 +10,25 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  /* animation-name: mobilenav; */
+  animation: slide-left 800ms;
 }
 
-/* @keyframes mobilenav {
-  
+@keyframes slide-left {
+  from {
+    transform: translateX(90%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(90%);
+  }
 } */
 
 .search-container {

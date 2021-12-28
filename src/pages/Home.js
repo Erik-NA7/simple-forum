@@ -22,9 +22,8 @@ function Home() {
     try {
       getData()
     } catch(error) {
-      console.log(error.message)
-    }
-    
+      alert(error.message)
+    }    
     return () => {
       getData()
     }
