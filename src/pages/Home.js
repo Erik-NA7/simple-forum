@@ -38,7 +38,7 @@ function Home() {
             <h1>{featuredPost.title}</h1>  
             <p>{featuredPost.body}</p>
           </div>          
-          <h2>Komentar</h2>
+          <h3>Komentar</h3>
           {featuredPost.comments &&
             <div className={style['comment-container']}>
               {featuredPost.comments.map((comment, id) => {
