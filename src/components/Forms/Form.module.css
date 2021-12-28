@@ -1,5 +1,5 @@
 .login-form-container {
-  padding: 20px;
+  padding: 16px;
   width: 60%;
 }
 
@@ -17,31 +17,24 @@
 }
 
 .comment-form > h3 {
-  margin: 1.5em 0;
   margin-top: -14px;
   width: 220px;
   background: white;
 }
 
 .close-modal {
-  text-align: right;
-  margin-bottom: -16px;
-  margin-right: -12px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -20px;
+  margin-right: -20px;
 }
 
-.close-modal span {
-  color: white;
-  font-weight: 700;
-  padding: 6px 10px;
-  background: var(--red);
-}
-
-.close-modal span:hover {
+.close-modal:hover {
   cursor: pointer;
 }
 
 .form-control {
-  margin-bottom: 1.5rem;
+  margin-bottom: 22px;
 }
 
 .form-control input,
@@ -52,13 +45,13 @@
 
 .form-control label {
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .form-control input,
 .form-control textarea {
   font: inherit;
-  padding: .7rem;
+  padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 100%; 
@@ -81,7 +74,7 @@
 .comment-form-actions button {
   border-radius: 4px;
   cursor: pointer;
-  padding: 0.5rem 1.5rem;
+  padding: 8px 24px;
   font: inherit;
 }
 
@@ -91,11 +84,7 @@
   background-color: var(--brown-dark);
 }
 
-.comment-form {
-  width: 100%;
-  padding-right: 1em;
-}
-
+.comment-form,
 .login-form .form-control {
   width: 100%;
 }
@@ -118,7 +107,7 @@
   background-color: var(--brown-dark);
   border: 1px solid var(--brown-dark);
   color: white;
-  margin-left: .5rem;
+  margin-left: 8px;
 }
 
 .form-actions button:active {
@@ -158,6 +147,7 @@ button:disabled:active {
 
   .login-form-container {
     width: 80%;
+    padding: 0;
   }
 }
 
@@ -167,7 +157,7 @@ button:disabled:active {
   }
 
   .close-modal {
-    margin-bottom: -2em;
+    margin-bottom: -40px;
     margin-right: 0;
   }
 }

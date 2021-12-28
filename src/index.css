@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 100%;
+}
+
 
 :root {
   --brown: #71695F;
@@ -20,13 +24,16 @@
 
 body {
   margin: 0;
-  font-family: 'Sans-Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  font-size: 15px;
+  font-family: 'Sans-Web', sans-serif;
   color: var(--black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+/* -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', */
+
+button {
+  font-family: 'Sans-Web', sans-serif;
 }
 
 code {

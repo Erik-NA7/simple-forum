@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import WindowClose from '../Icons/WindowClose';
 import style from './Form.module.css'
 
 const BasicForm = (props) => {
@@ -104,7 +105,9 @@ const BasicForm = (props) => {
   
   return (
     <div className={style['login-form-container']}>
-      <p className={style['close-modal']}><span onClick={props.onClose}>x</span></p>
+      <div className={style['close-modal']}>
+        <WindowClose onClose={props.onClose}/>
+      </div>
       <form className={style['login-form']} onSubmit={onSubmitHandler}>
         <h2>Login</h2>
         <div className={emailInputClass}>

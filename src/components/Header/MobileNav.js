@@ -1,16 +1,12 @@
 import { FaSearch } from 'react-icons/fa'
-import { FaWindowClose } from 'react-icons/fa'
+import WindowClose from '../Icons/WindowClose'
 import style from './Mobilenav.module.css'
 
 function MobileNav(props) {
 
   return (
     <div className={style['mobile-nav']}>
-      <div className={style['close-icon-wrap']} onClick={props.onToggleNav}>
-      <FaWindowClose className={style['close-nav']}/>
-        <h4>.</h4>
-      </div>
-      
+      <WindowClose onClose={props.onClose}/>
       <div className={style['search-container']}>
         <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
         <i className={style['fa-search']}><FaSearch /></i>

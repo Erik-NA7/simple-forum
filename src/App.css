@@ -1,22 +1,19 @@
-h3, p {
-  margin: 0;
-}
-
 p {
-  line-height: 2em;
-  font-size: .9em;
+  margin: 0;
+  line-height: 1.4rem;
+  font-size: .8rem;
 }
 
 .container {
-  width: 75%;
-  margin: 0 auto;
+  width: 72%;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .content {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   align-items: flex-start;
 }
@@ -56,7 +53,7 @@ p {
 
 @media only screen and (max-width:1024px) {
   .container {
-    width: 98%;
+    width: 96%;
     flex-direction: column;
   }
 }
@@ -70,7 +67,7 @@ p {
   }
 }
 
-@media only screen and (max-width:576px) {
+/* @media only screen and (max-width:576px) {
   .main-content {
     width: 100%;
   }
@@ -81,4 +78,4 @@ p {
     right: 0px;
     bottom: 0px; 
   }
-}
+} */

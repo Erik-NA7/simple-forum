@@ -17,7 +17,7 @@ function Header(props) {
     <header className={style['App-header']}>
       <div className={`container ${style.nav}`}>
         <div className={style['nav-brand']}>
-          <h2>Forum anak IT</h2>
+          <h3>Forum anak IT</h3>
           <button className={style['nav-toggle']} onClick={onToggleNav}><FaBars/></button>
         </div>    
         
@@ -30,11 +30,11 @@ function Header(props) {
             <div className={style['dropdown']}>
               <button className={style['navmenu-btn']}>Categories</button>
               <div className={style['dropdown-content']}>
-                <button className={style['category']}>Linux</button>
-                <button className={style['category']}>Windows</button>
-                <button className={style['category']}>MAC OS</button>
-                <button className={style['category']}>Android</button>
-                <button className={style['category']}>iOS</button>
+                <button>Linux</button>
+                <button>Windows</button>
+                <button>MAC OS</button>
+                <button>Android</button>
+                <button>iOS</button>
               </div>
             </div>
             <button className={style['navmenu-btn']} onClick={props.onLogin}>Login</button>
@@ -44,7 +44,7 @@ function Header(props) {
       </div>
     </header>
     { showMobileNav && <MobileNav
-      onToggleNav={onToggleNav}
+      onClose={onToggleNav}
       onLogin={props.onLogin}
       onRegister={props.onRegister}
       />}
