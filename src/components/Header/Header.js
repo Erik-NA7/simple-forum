@@ -1,50 +1,26 @@
-import { useState, useEffect } from 'react'
-import style from './Navbar.module.css'
+import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { FaBars } from 'react-icons/fa'
-
-const useWindowSize = () => {
-  const [ navbar, setNavBar] = useState(null)
-  const [ navtoglle, setNavToggle] = useState(null)
-  useEffect(() => {
-    const getWindowSize = () => {
-      if (window.innerWidth <= 1024) {
-        setNavBar(false)
-        setNavToggle(true)
-      }
-      if (window.innerWidth > 1024) {
-        setNavBar(true)
-        setNavToggle(false)
-      }
-    }
-    window.addEventListener("resize", getWindowSize)
-    return () => {
-      window.removeEventListener("resize", getWindowSize)
-    }
-  })
-  return [navbar, navtoglle] 
-}
+import MobileNav from './MobileNav'
+import style from './Navbar.module.css'
 
 function Header(props) {
 
-  let [ showNavBar, showNavToggle ] = useWindowSize()
-
-  const [ toggleNav, setToggleNav ] = useState(false)
+  const [ showMobileNav, setshowMobileNav ] = useState(false)
 
   const onToggleNav = () => {
-    setToggleNav(!toggleNav)
+    setshowMobileNav(!showMobileNav)
   }
 
   return (
+    <>
     <header className={style['App-header']}>
       <div className={`container ${style.nav}`}>
         <div className={style['nav-brand']}>
           <h2>Forum anak IT</h2>
-          { showNavToggle && <div className={style['nav-toggle']}>
-            <button onClick={onToggleNav}><FaBars/></button>
-          </div> }
+          <button className={style['nav-toggle']} onClick={onToggleNav}><FaBars/></button>
         </div>    
-        { (showNavBar || toggleNav) &&
+        
         <nav className={style.navbar}>
           <div className={style['search-container']}>
             <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
@@ -52,23 +28,27 @@ function Header(props) {
           </div>
           <div className={style['nav-menu']}>
             <div className={style['dropdown']}>
-              <button className={style.dropbtn}>Categories</button>
+              <button className={style['navmenu-btn']}>Categories</button>
               <div className={style['dropdown-content']}>
-                <menu>
-                  <li>Linux</li>
-                  <li>Windows</li>
-                  <li>MAC OS</li>
-                  <li>Android</li>
-                  <li>iOS</li>
-                </menu>
+                <button className={style['category']}>Linux</button>
+                <button className={style['category']}>Windows</button>
+                <button className={style['category']}>MAC OS</button>
+                <button className={style['category']}>Android</button>
+                <button className={style['category']}>iOS</button>
               </div>
             </div>
-            <button onClick={props.onLogin}>Login</button>
-            <button onClick={props.onRegister}>Register</button>
+            <button className={style['navmenu-btn']} onClick={props.onLogin}>Login</button>
+            <button className={style['navmenu-btn']} onClick={props.onRegister}>Register</button>
           </div>
-        </nav> }
+        </nav>
       </div>
     </header>
+    { showMobileNav && <MobileNav
+      onToggleNav={onToggleNav}
+      onLogin={props.onLogin}
+      onRegister={props.onRegister}
+      />}
+    </>
   )
 }
 

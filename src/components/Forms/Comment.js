@@ -158,7 +158,7 @@ const Register = (props) => {
       <div className={emailInputClass}>
         <input
           type='email'
-          id='email'
+          id='k-email'
           placeholder='Email'
           value={email}
           onChange={emailChangeHandler}

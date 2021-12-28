@@ -1,3 +1,7 @@
+.main-content {
+  border-right: 1px solid rgb(218, 218, 218)
+}
+
 .posts {
   display: flex;
   flex-direction: column;
@@ -13,7 +17,7 @@
 
 .post-main {
   border-bottom: 1px solid rgb(218, 218, 218);
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 
 .post-main h1 {
@@ -34,11 +38,11 @@
 
 .comment, .reply {
   display: flex;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .avatar {
-  width: 120px;
+  width: 100px;
   height: auto;
 }
 
@@ -63,7 +67,7 @@
 }
 
 .reply .avatar {
-  width: 80px;
+  width: 60px;
 }
 
 .vote-action {
@@ -107,8 +111,14 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width:1024px) {
+.main-content {
+  border: none;
+}
+}
+
 @media only screen and (max-width:768px) {
   .avatar {
-    width: 80px;
+    width: 60px;
   }
 }

@@ -43,12 +43,14 @@ function Comment(props) {
             className={upVoteClass}
             onClick={pointsUp}
             disabled={hasVoted}>
-              <FaArrowUp style={arrowIconStyle}/></button>
+            <FaArrowUp style={arrowIconStyle}/>
+          </button>
           <button
             className={downVoteClass}
             onClick={pointsDown}
             disabled={hasVoted}>
-              <FaArrowDown style={arrowIconStyle}/></button>
+            <FaArrowDown style={arrowIconStyle}/>
+          </button>
         </div>
         <div>{props.children}</div>
       </div>
