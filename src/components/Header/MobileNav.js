@@ -1,9 +1,25 @@
+
 import WindowClose from '../Icons/WindowClose'
 import Modal from 'react-modal'
 import style from './Mobilenav.module.css'
 import { FaSearch } from 'react-icons/fa'
+import { useState } from 'react'
 
 function MobileNav(props) {
+
+  const [ searchString, setSearchString ] = useState('')
+
+  const searchHandler = (e) => {
+    setSearchString(e.target.value)
+  }
+
+  const onSearch = (e) => {
+    e.preventDefault()
+    if (searchString.trim() === '') {
+      alert(`Ketik item pencarian`)
+    }
+  }
+  
   return (
     <Modal
       className={{
@@ -21,10 +37,16 @@ function MobileNav(props) {
       closeTimeoutMS={790}>
         <div className={style['mobile-nav']}>
           <WindowClose onClose={props.onClose}/>
-          <div className={style['search-container']}>
-            <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
-            <div className={style['fa-search']}><FaSearch /></div>
-        </div>
+          <form className={style['search-container']} onSubmit={onSearch}>
+            <input
+              className={style.searchbox}
+              type='search'
+              name='search'
+              placeholder='Search'
+              onChange={searchHandler}>
+            </input>
+            <button className={style['fa-search']} type='submit'><FaSearch /></button>
+          </form>
         <div className={style['mobile-nav-menu']}>
           <button>Categories</button>
           <button className={style['category']}>Linux</button>

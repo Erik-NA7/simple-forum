@@ -35,10 +35,16 @@
 }
 
 .fa-search {
+  background-color: transparent;
+  border: none;
   color: var(--brown-dark);
   width: 10%;
   padding-right: 10px;
   text-align: right;
+}
+
+.fa-search:hover {
+  cursor: pointer;
 }
 
 .mobile-nav-menu {

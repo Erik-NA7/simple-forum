@@ -47,7 +47,7 @@ const BasicForm = (props) => {
 
   const paswordChangeHandler = (e) => {
     setPassword(e.target.value)
-    if (e.target.value !== '') {
+    if (e.target.value.trim() !== '') {
       setPasswordIsValid(true)
       if (passwordIsTouched) {
         validClass(setPasswordInputClass)

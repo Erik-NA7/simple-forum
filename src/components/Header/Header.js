@@ -7,6 +7,18 @@ import style from './Header.module.css'
 function Header(props) {
 
   const [ showMobileNav, setshowMobileNav ] = useState(false)
+  const [ searchString, setSearchString ] = useState('')
+
+  const searchHandler = (e) => {
+    setSearchString(e.target.value)
+  }
+
+  const onSearch = (e) => {
+    e.preventDefault()
+    if (searchString.trim() === '') {
+      alert(`Ketik item pencarian`)
+    }
+  }
 
   const onToggleNav = () => {
     setshowMobileNav(!showMobileNav)
@@ -20,12 +32,17 @@ function Header(props) {
             <h3>Forum anak IT</h3>
             <button className={style['nav-toggle']} onClick={onToggleNav}><FaBars/></button>
           </div>    
-          
           <nav className={style.navbar}>
-            <div className={style['search-container']}>
-              <input className={style.searchbox} type='search' name='search' placeholder='Search'></input>
-              <div className={style['fa-search']}><FaSearch /></div>
-            </div>
+            <form className={style['search-container']} onSubmit={onSearch}>
+              <input
+                className={style.searchbox}
+                type='search'
+                name='search'
+                placeholder='Search'
+                onChange={searchHandler}>
+              </input>
+              <button className={style['fa-search']} type='submit'><FaSearch /></button>
+            </form>
             <div className={style['nav-menu']}>
               <div className={style['dropdown']}>
                 <button className={style['navmenu-btn']}>Categories</button>

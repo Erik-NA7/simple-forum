@@ -41,7 +41,7 @@ const Register = (props) => {
 
   const nameChangeHandler = (e) => {
     setName(e.target.value)
-    if (e.target.value !== '') {
+    if (e.target.value.trim() !== '') {
       setNameIsValid(true)
       if (nameIsTouched) {
         validClass(setNameInputClass)
@@ -71,7 +71,7 @@ const Register = (props) => {
 
   const passwordChangeHandler = (e) => {
     setPassword(e.target.value)
-    if (e.target.value !== '') {
+    if (e.target.value.trim() !== '') {
       setPasswordIsValid(true)
       if (passwordIsTouched) {
         validClass(setPasswordInputClass)

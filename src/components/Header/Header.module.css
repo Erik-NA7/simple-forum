@@ -4,7 +4,6 @@
   background-color: var(--brown-dark);
   color: white;
   width: 100%;
-  /* font-family: Sans-we; */
 }
 
 .nav {
@@ -55,12 +54,17 @@
 }
 
 .searchbox {
-  font-size: .8rem;
+  font-size: .9rem;
   border: none;
   width: 93%;
   height: 100%;
   padding-left: 10px;
   background-color: transparent;
+  color: var(--brown);
+}
+
+.empty-search {
+  color: var(--red);
 }
 
 .searchbox:focus {
@@ -68,10 +72,16 @@
 }
 
 .fa-search {
+  background-color: transparent;
+  border: none;
   color: var(--brown-dark);
-  width: 10%;
+  width: 7%;
   padding-right: 10px;
   text-align: right;
+}
+
+.fa-search:hover {
+  cursor: pointer;
 }
 
 .nav-menu {
