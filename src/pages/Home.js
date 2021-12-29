@@ -41,25 +41,27 @@ function Home() {
           <h3>Komentar</h3>
           {featuredPost.comments &&
             <div className={style['comment-container']}>
-              {featuredPost.comments.map((comment, id) => {
+              {featuredPost.comments.map((comment, idx) => {
               return (
-              <div className={style.comments} key={id} >
+              <div className={style.comments} key={idx} >
                 <Comment
-                  key={id}
-                  user={comment.user}
-                  dateTime={comment.dateTime}
-                  comment={comment.comment}
-                  points={comment.points}
+                  key={comment.id}
+                  avatar={comment.avatar}
+                  author={comment.author}
+                  date={comment.date}
+                  message={comment.message}
+                  point={comment.point}
                   children={comment.replies && 
                     <div className={style.reply}>
-                      {comment.replies.map((reply, id) => {
+                      {comment.replies.map((reply, idx) => {
                       return (
                         <Comment
-                          key={id}
-                          user={reply.user}
-                          dateTime={reply.dateTime}
-                          comment={reply.comment}
-                          points={reply.points}
+                          key={reply.id}
+                          avatar={reply.avatar}
+                          author={reply.author}
+                          date={reply.date}
+                          message={reply.message}
+                          point={reply.point}
                         />
                       )
                       })}

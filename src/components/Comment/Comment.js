@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa'
 import { FaArrowUp } from 'react-icons/fa'
 import style from '../Post.module.css'
-import avatar from '../../assets/logo192.png'
+// import avatar from '../../assets/logo192.png'
 
 function Comment(props) {
 
@@ -14,7 +14,7 @@ function Comment(props) {
   const [ downVoteClass, setDownVoteClass ] = useState(style['downvote-btn'])
   const [ hasVoted, setHasVoted ] = useState(false)
 
-  const [points, setPoints] = useState(props.points)
+  const [points, setPoints] = useState(props.point)
 
   const pointsUp = () => {
     setPoints(points + 1)
@@ -31,14 +31,14 @@ function Comment(props) {
   return (
     <div className={style.comment}>
       <div className={style.avatar}>
-        <img className={style.avatar} src={avatar} alt='avatar'/>
+        <img src={props.avatar} alt='avatar'/>
       </div>
       <div className={style['comment-body']}>
-        <p className={style['user-name']}>{props.user}</p>
-        <p className={style.dateTime}>{props.dateTime}</p>
+        <p className={style['user-name']}>{props.author}</p>
+        <p className={style.dateTime}>{props.date}</p>
         <p>{props.comment}</p>
         <div className={style['vote-action']}>
-          <p className={style.points}>{points} point</p>
+          <p className={style.point}>{points} point</p>
           <button
             className={upVoteClass}
             onClick={pointsUp}
