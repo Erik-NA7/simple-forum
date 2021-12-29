@@ -1,7 +1,8 @@
 import { useState, useEffect} from 'react'
 import TopFiveDiscussions from '../components/Aside/TopFiveDiscussions'
 import Comment from '../components/Comment/Comment'
-import CommnetForm from '../components/Forms/Comment'
+import CommentForm from '../components/Forms/Comment'
+import baseURL from '../api/apiconfig'
 import style from '../components/Post.module.css'
 
 function Home() {
@@ -10,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     const getData = async() => {
-      const response = await fetch('http://localhost:5000/posts')
+      const response = await fetch(baseURL)
       if (!response.ok) {
         throw new Error('Something went wrong')
       }
@@ -71,7 +72,7 @@ function Home() {
             </div>
           }
         </article>
-        <CommnetForm/>
+        <CommentForm/>
       </main>
       <TopFiveDiscussions data={posts}/>  
     </div> 

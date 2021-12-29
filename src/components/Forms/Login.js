@@ -114,7 +114,7 @@ const BasicForm = (props) => {
           <label htmlFor='email'>Email</label>
           <input
             type='email'
-            id='email'
+            id='l-email'
             value={email}
             onChange={emailChangeHandler}
             onBlur={onEmailBlurHandler} />
@@ -124,7 +124,7 @@ const BasicForm = (props) => {
           <label htmlFor='password'>Password</label>
           <input
             type='password'
-            id='password'
+            id='l-password'
             value={password}
             onChange={paswordChangeHandler}
             onBlur={onPaswordBlurHandler} />
