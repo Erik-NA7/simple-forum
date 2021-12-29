@@ -13,6 +13,7 @@
 
 .nav-brand {
   height: 100%;
+  min-width: 180px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 81%;
+  flex-grow: 1;
   height: 100%
 }
 
@@ -74,8 +75,8 @@
 }
 
 .nav-menu {
+  width: 31%;
   display: flex;
-  /* width: auto; */
   height: 100%;
   text-align: center;
 }
