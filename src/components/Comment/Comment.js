@@ -52,7 +52,7 @@ function Comment(props) {
             <FaArrowDown style={arrowIconStyle}/>
           </button>
         </div>
-        <div>{props.children}</div>
+        {props.children}
       </div>
     </div>    
   )

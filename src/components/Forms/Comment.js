@@ -148,7 +148,7 @@ const Register = (props) => {
       <div className={nameInputClass}>
         <input
           type='text'
-          id='name'
+          id='k-name'
           placeholder='Name'
           value={name}
           onChange={nameChangeHandler}

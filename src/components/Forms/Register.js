@@ -150,7 +150,7 @@ const Register = (props) => {
           <label htmlFor='name'>Name</label>
           <input
             type='text'
-            id='name'
+            id='r-name'
             value={name}
             onChange={nameChangeHandler}
             onBlur={onNameBlurHandler} />
@@ -160,7 +160,7 @@ const Register = (props) => {
           <label htmlFor='name'>Email</label>
           <input
             type='email'
-            id='email'
+            id='r-email'
             value={email}
             onChange={emailChangeHandler}
             onBlur={onEmailBlurHandler} />
@@ -170,7 +170,7 @@ const Register = (props) => {
           <label htmlFor='name'>Password</label>
           <input
             type='password'
-            id='password'
+            id='r-password'
             value={password}
             onChange={passwordChangeHandler}
             onBlur={onPaswordBlurHandler} />

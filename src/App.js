@@ -13,39 +13,53 @@ function App() {
   const [loginIsOpen, setLoginIsOpen] = useState(false)
   const [registerIsOpen, setRegisterIsOpen] = useState(false)
 
+  const loginHandler = () => {
+    setLoginIsOpen(!loginIsOpen)
+  }
+
+
+  const registerHandler = () => {
+    setRegisterIsOpen(!registerIsOpen)
+  }
+
   return (
     <div className="App">
-      <Header onLogin={() => setLoginIsOpen(true)} onRegister={() => setRegisterIsOpen(true)}/>
+      <Header onLogin={loginHandler} onRegister={registerHandler}/>
       <Home className='main'/>
       <Modal
         className={{
           base: 'modalContent',
-          beforeClose: 'modalContentOff'
+          afterOpen: 'modalContent',
+          beforeClose: 'modalContentOff',
+
         }}
         overlayClassName={{
           base: 'modalOverlay',
+          afterOpen: 'modalOverlay',
           beforeClose: 'modalOverlayOff'
         }}
-        onRequestClose={loginIsOpen}
+        onRequestClose={loginHandler}
         isOpen={loginIsOpen}
         closeTimeoutMS={790}
       >
-        <Login onClose={() => setLoginIsOpen(false)}/>
+        <Login onClose={loginHandler}/>
       </Modal>
       <Modal
        className={{
         base: 'modalContent',
+        afterOpen: 'modalContent',
         beforeClose: 'modalContentOff'
         }}
         overlayClassName={{
           base: 'modalOverlay',
+          afterOpen: 'modalOverlay',
           beforeClose: 'modalOverlayOff'
         }}
-        onRequestClose={registerIsOpen}
         isOpen={registerIsOpen}
+        onRequestClose={registerHandler}
         closeTimeoutMS={790}
       >
-        <Register onClose={() => setRegisterIsOpen(false)}/>
+        <Register onClose={registerHandler}/>
       </Modal>
     </div>
   );
