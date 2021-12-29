@@ -8,7 +8,7 @@
 }
 
 .nav {
-  height: 45px;
+  height: 50px;
 }
 
 .nav-brand {
@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: space-between;
   width: 64%;
-  height: 70%;
+  height: 40px;
   background-color: var(--grey);
   border-radius: 5px;
 }
@@ -54,23 +54,23 @@
 }
 
 .searchbox {
-  font-size: .9rem;
+  font-size: .8rem;
   border: none;
   width: 93%;
   height: 100%;
-  padding: 0 8px;
+  padding-left: 10px;
   background-color: transparent;
 }
 
 .searchbox:focus {
   outline: none;
-  background-color: none;
 }
 
 .fa-search {
   color: var(--brown-dark);
-  width: 7%;
-  text-align: center;
+  width: 10%;
+  padding-right: 10px;
+  text-align: right;
 }
 
 .nav-menu {

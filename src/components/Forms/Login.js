@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import WindowClose from '../Icons/WindowClose';
+import Modal from 'react-modal'
 import style from './Form.module.css'
 
 const BasicForm = (props) => {
@@ -104,37 +105,52 @@ const BasicForm = (props) => {
   }
   
   return (
-    <div className={style['login-form-container']}>
-      <div className={style['close-modal']}>
-        <WindowClose onClose={props.onClose}/>
+    <Modal
+      className={{
+        base: 'formModalContent',
+        afterOpen: 'formModalContent',
+        beforeClose: 'formModalContentClose'
+      }}
+      overlayClassName={{
+        base: 'formModalOverlay',
+        afterOpen: 'formModalOverlay',
+        beforeClose: 'formModalOverlayClose'
+      }}
+      onRequestClose={props.onReqestClose}
+      isOpen={props.isOpen}
+      closeTimeoutMS={790}>
+        <div className={style['login-form-container']}>
+          <div className={style['close-modal']}>
+            <WindowClose onClose={props.onClose}/>
+          </div>
+          <form className={style['login-form']} onSubmit={onSubmitHandler}>
+            <h2>Login</h2>
+            <div className={emailInputClass}>
+              <label htmlFor='email'>Email</label>
+              <input
+                type='email'
+                id='l-email'
+                value={email}
+                onChange={emailChangeHandler}
+                onBlur={onEmailBlurHandler} />
+              {!emailIsValid && emailIsTouched && <p className={style['error-text']}>Format email salah</p>}
+            </div>
+            <div className={passwordInputClass}>
+              <label htmlFor='password'>Password</label>
+              <input
+                type='password'
+                id='l-password'
+                value={password}
+                onChange={paswordChangeHandler}
+                onBlur={onPaswordBlurHandler} />
+              {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
+            </div>
+            <div className={style['form-actions']}>
+              <button type='submit'>Login</button>
+            </div>
+          </form>
       </div>
-      <form className={style['login-form']} onSubmit={onSubmitHandler}>
-        <h2>Login</h2>
-        <div className={emailInputClass}>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            id='l-email'
-            value={email}
-            onChange={emailChangeHandler}
-            onBlur={onEmailBlurHandler} />
-          {!emailIsValid && emailIsTouched && <p className={style['error-text']}>Format email salah</p>}
-        </div>
-        <div className={passwordInputClass}>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            id='l-password'
-            value={password}
-            onChange={paswordChangeHandler}
-            onBlur={onPaswordBlurHandler} />
-          {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
-        </div>
-        <div className={style['form-actions']}>
-          <button type='submit'>Login</button>
-        </div>
-      </form>
-    </div>
+    </Modal>
   );
 };
 

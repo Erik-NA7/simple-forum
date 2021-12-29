@@ -5,9 +5,9 @@ import React from 'react'
 
 function WindowClose(props) {
   return (
-    <span className={style['close-icon-wrap']} onClick={props.onClose}>
+    <div className={style['close-icon-wrap']} onClick={props.onClose}>
       <RiCloseFill className={style['close-nav']}/>
-    </span>
+    </div>
   )
 }
 
