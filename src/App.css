@@ -18,18 +18,21 @@ p {
   align-items: flex-start;
 }
 
-.modalOverlay {
+/* styles for form modal */
+
+.formModalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 99;
   background-color: rgba(0, 0, 0, 0.4);
   animation-name: fadeIn;
   animation-duration: .8s;
 }
   
-.modalContent {
+.formModalContent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +49,7 @@ p {
   animation-duration: .8s;
 }
 
-.modalOverlayOff {
+.formModalOverlayClose {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +60,7 @@ p {
   animation-duration: .8s;
 }
   
-.modalContentOff {
+.formModalContentClose {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,6 +87,66 @@ p {
   to { opacity: 0;}
 }
 
+/* styles for mobile nav menu */
+
+.mobilenavOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+  
+.mobilenavContent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 100%;
+  background: var(--black);
+  animation: slide-left 800ms;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  animation-name: slide-left;
+  animation-duration: .8s;
+}
+
+.mobilenavOnCloseContent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 100%;
+  background: var(--black);
+  animation: slide-left 800ms;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  animation-name: slide-right;
+  animation-duration: .8s;
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* breakpoints */
+
 @media only screen and (max-width:1024px) {
   .container {
     width: 96%;
@@ -92,23 +155,10 @@ p {
 }
 
 @media only screen and (max-width:768px) {
-  .modalContent  {
+  .formModalContent, .formModalContentClose {
     top: 10px;
     left: 10px;
     right: 10px;
     bottom: 10px; 
   }
 }
-
-/* @media only screen and (max-width:576px) {
-  .main-content {
-    width: 100%;
-  }
-
-  .modalContent  {
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px; 
-  }
-} */

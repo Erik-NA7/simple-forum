@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import WindowClose from '../Icons/WindowClose'
+import Modal from 'react-modal'
 import style from './Form.module.css'
 
 const Register = (props) => {
@@ -140,47 +141,63 @@ const Register = (props) => {
   }
   
   return (
-    <div className={style['login-form-container']}>
-      <div className={style['close-modal']}>
-        <WindowClose onClose={props.onClose}/>
+    <Modal
+      className={{
+        base: 'formModalContent',
+        afterOpen: 'formModalContent',
+        beforeClose: 'formModalContentClose',
+
+      }}
+      overlayClassName={{
+        base: 'formModalOverlay',
+        afterOpen: 'formModalOverlay',
+        beforeClose: 'formModalOverlayClose'
+      }}
+      onRequestClose={props.onReqestClose}
+      isOpen={props.isOpen}
+      closeTimeoutMS={790}>
+      <div className={style['login-form-container']}>
+        <div className={style['close-modal']}>
+          <WindowClose onClose={props.onClose}/>
+        </div>
+        <form className={style['login-form']} onSubmit={onSubmitHandler}>
+          <h2>Register</h2>
+          <div className={nameInputClass}>
+            <label htmlFor='name'>Name</label>
+            <input
+              type='text'
+              id='r-name'
+              value={name}
+              onChange={nameChangeHandler}
+              onBlur={onNameBlurHandler} />
+            {!nameIsValid && nameIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
+          </div>
+          <div className={emailInputClass}>
+            <label htmlFor='name'>Email</label>
+            <input
+              type='email'
+              id='r-email'
+              value={email}
+              onChange={emailChangeHandler}
+              onBlur={onEmailBlurHandler} />
+            {!emailIsValid && emailIsTouched && <p className={style['error-text']}>Format email salah</p>}
+          </div>
+          <div className={passwordInputClass}>
+            <label htmlFor='name'>Password</label>
+            <input
+              type='password'
+              id='r-password'
+              value={password}
+              onChange={passwordChangeHandler}
+              onBlur={onPaswordBlurHandler} />
+            {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
+          </div>
+          <div className={style['form-actions']}>
+            <button type='submit'>Create account</button>
+          </div>
+        </form>
       </div>
-      <form className={style['login-form']} onSubmit={onSubmitHandler}>
-        <h2>Register</h2>
-        <div className={nameInputClass}>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            id='r-name'
-            value={name}
-            onChange={nameChangeHandler}
-            onBlur={onNameBlurHandler} />
-          {!nameIsValid && nameIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
-        </div>
-        <div className={emailInputClass}>
-          <label htmlFor='name'>Email</label>
-          <input
-            type='email'
-            id='r-email'
-            value={email}
-            onChange={emailChangeHandler}
-            onBlur={onEmailBlurHandler} />
-          {!emailIsValid && emailIsTouched && <p className={style['error-text']}>Format email salah</p>}
-        </div>
-        <div className={passwordInputClass}>
-          <label htmlFor='name'>Password</label>
-          <input
-            type='password'
-            id='r-password'
-            value={password}
-            onChange={passwordChangeHandler}
-            onBlur={onPaswordBlurHandler} />
-          {!passwordIsValid && passwordIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
-        </div>
-        <div className={style['form-actions']}>
-          <button type='submit'>Create account</button>
-        </div>
-      </form>
-    </div>
+    </Modal>
   )
 }
 

@@ -17,7 +17,6 @@ function App() {
     setLoginIsOpen(!loginIsOpen)
   }
 
-
   const registerHandler = () => {
     setRegisterIsOpen(!registerIsOpen)
   }
@@ -26,41 +25,16 @@ function App() {
     <div className="App">
       <Header onLogin={loginHandler} onRegister={registerHandler}/>
       <Home className='main'/>
-      <Modal
-        className={{
-          base: 'modalContent',
-          afterOpen: 'modalContent',
-          beforeClose: 'modalContentOff',
-
-        }}
-        overlayClassName={{
-          base: 'modalOverlay',
-          afterOpen: 'modalOverlay',
-          beforeClose: 'modalOverlayOff'
-        }}
-        onRequestClose={loginHandler}
+      <Login
         isOpen={loginIsOpen}
-        closeTimeoutMS={790}
-      >
-        <Login onClose={loginHandler}/>
-      </Modal>
-      <Modal
-       className={{
-        base: 'modalContent',
-        afterOpen: 'modalContent',
-        beforeClose: 'modalContentOff'
-        }}
-        overlayClassName={{
-          base: 'modalOverlay',
-          afterOpen: 'modalOverlay',
-          beforeClose: 'modalOverlayOff'
-        }}
+        onRequestClose={loginHandler}
+        onClose={loginHandler}
+      />
+      <Register
         isOpen={registerIsOpen}
         onRequestClose={registerHandler}
-        closeTimeoutMS={790}
-      >
-        <Register onClose={registerHandler}/>
-      </Modal>
+        onClose={registerHandler}
+      />
     </div>
   );
 }
