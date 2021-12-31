@@ -44,13 +44,9 @@
   margin: 5px 0;
 }
 
-.avatar {
+.comment .avatar img {
   width: 80px;
-  height: 80px;
-}
-
-.avatar img {
-  width: 100%;
+  height: auto;
 }
 
 .comment-body {
@@ -74,8 +70,9 @@
   margin: 12px 0;
 }
 
-.reply .avatar {
+.reply .avatar img{
   width: 50px;
+  height: auto;
 }
 
 .vote-action {

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa'
 import { FaArrowUp } from 'react-icons/fa'
 import style from '../Post.module.css'
-// import avatar from '../../assets/logo192.png'
 
 function Comment(props) {
 

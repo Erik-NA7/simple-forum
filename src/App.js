@@ -1,10 +1,11 @@
+import loadable from '@loadable/component';
+import Modal from 'react-modal';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
-import Modal from 'react-modal';
-import Login from './components/Forms/Login'
-import Register from './components/Forms/Register'
-import { useState } from 'react'
+import { useState } from 'react';
 import './App.css';
+const Login = loadable(() => import('./components/Forms/Login'));
+const Register = loadable(() => import('./components/Forms/Register'));
 
 Modal.setAppElement('#root')
 
