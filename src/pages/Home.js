@@ -9,6 +9,13 @@ function Home() {
   const [ featuredPost, setFeaturedPost ] = useState({})
   const [ posts, setPosts ] = useState([])
 
+  const dateTimeFormat = (dateString) => {
+    const dates = new Date(dateString)
+    const date = new Intl.DateTimeFormat('en-GB', {dateStyle: 'long'}).format(dates)
+    const time = `${dates.getHours()}:${dates.getMinutes()}`
+    return(`${date} ${time}`)
+  }
+
   useEffect(() => {
     const getData = async() => {
       const response = await fetch(baseURL)
@@ -48,7 +55,7 @@ function Home() {
                   key={comment.id}
                   avatar={comment.avatar}
                   author={comment.author}
-                  date={comment.date}
+                  date={dateTimeFormat(comment.date)}
                   message={comment.message}
                   point={comment.point}
                   children={comment.replies && 
@@ -59,7 +66,7 @@ function Home() {
                           key={reply.id}
                           avatar={reply.avatar}
                           author={reply.author}
-                          date={reply.date}
+                          date={dateTimeFormat(reply.date)}
                           message={reply.message}
                           point={reply.point}
                         />
