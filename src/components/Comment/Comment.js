@@ -36,7 +36,7 @@ function Comment(props) {
       <div className={style['comment-body']}>
         <p className={style['user-name']}>{props.author}</p>
         <p className={style.dateTime}>{props.date}</p>
-        <p>{props.comment}</p>
+        <p>{props.message}</p>
         <div className={style['vote-action']}>
           <p className={style.point}>{points} point</p>
           <button
