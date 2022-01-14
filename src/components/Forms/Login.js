@@ -3,7 +3,7 @@ import WindowClose from '../Icons/WindowClose';
 import Modal from 'react-modal'
 import style from './Form.module.css'
 
-const BasicForm = (props) => {
+const Login = (props) => {
   const [ email, setEmail ] = useState('')
   const [ emailIsTouched, setEmailIsTouched ] = useState(false)
   const [ emailIsValid, setEmailIsValid ] = useState(false)
@@ -154,4 +154,4 @@ const BasicForm = (props) => {
   );
 };
 
-export default BasicForm;
+export default Login;

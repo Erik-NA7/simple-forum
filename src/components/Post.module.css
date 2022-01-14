@@ -46,7 +46,7 @@
 
 .comment .avatar img {
   width: 80px;
-  height: auto;
+  height:  80px;
 }
 
 .comment-body {
@@ -72,7 +72,7 @@
 
 .reply .avatar img{
   width: 50px;
-  height: auto;
+  height: 50px;
 }
 
 .vote-action {

@@ -8,12 +8,25 @@ import style from '../components/Post.module.css'
 function Home() {
   const [ featuredPost, setFeaturedPost ] = useState({})
   const [ posts, setPosts ] = useState([])
+  // const [ newComment, setNewComment ] = useState('')
 
   const dateTimeFormat = (dateString) => {
     const dates = new Date(dateString)
     const date = new Intl.DateTimeFormat('en-GB', {dateStyle: 'long'}).format(dates)
     const time = `${dates.getHours()}:${dates.getMinutes()}`
     return(`${date} ${time}`)
+  }
+
+  const onSubmit = (newComment) => {
+    setFeaturedPost({
+      ...featuredPost,
+      comments: [
+        ...featuredPost.comments,
+        newComment
+      ]
+    })
+    console.log(featuredPost)
+    console.log(newComment)
   }
 
   useEffect(() => {
@@ -81,7 +94,7 @@ function Home() {
             </div>
           }
         </article>
-        <CommentForm/>
+        <CommentForm onSubmit={onSubmit}/>
       </main>
       <TopFiveDiscussions data={posts}/>  
     </div> 

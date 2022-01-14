@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import style from './Form.module.css'
 
-const Register = (props) => {
+const Comment = (props) => {
 
-  const [ name, setName ] = useState('')
+  // const [ name, setName ] = useState('')
   const [ nameIsTouched, setNameIsTouched ] = useState(false)
   const [ nameIsValid, setNameIsValid ] = useState(false)
 
@@ -11,9 +11,21 @@ const Register = (props) => {
   const [ emailIsTouched, setEmailIsTouched ] = useState(false)
   const [ emailIsValid, setEmailIsValid ] = useState(false)
 
-  const [ comment, setComment ] = useState('')
+  const commentObj = {
+    id: "fa1ca3c1-cc1e-4ed9-86b8-f60d8312d499",
+    author: "",
+    avatar: "https://avatars.dicebear.com/api/avataaars/user.svg",
+    date: new Date(),
+    message: "",
+    point: 0,
+    replies: []
+  }
+
+  // const [ comment, setComment ] = useState('')
   const [ commentIsTouched, setCommentIsTouched ] = useState(false)
   const [ commentIsValid,  setCommentIsValid ] = useState(false)
+
+  const [ newComment, setNewComment ] = useState(commentObj)
 
   const [ nameInputClass, setNameInputClass] = useState(style['form-control'])
   const [ emailInputClass, setEmailInputClass] = useState(style['form-control'])
@@ -38,7 +50,11 @@ const Register = (props) => {
   }
 
   const nameChangeHandler = (e) => {
-    setName(e.target.value)
+    // setName(e.target.value)
+    setNewComment({
+      ...newComment,
+      author: e.target.value,
+    })
     if (e.target.value !== '') {
       setNameIsValid(true)
       if (nameIsTouched) {
@@ -68,7 +84,10 @@ const Register = (props) => {
   }
 
   const commentChangeHandler = (e) => {
-    setComment(e.target.value)
+    setNewComment({
+      ...newComment,
+      message: e.target.value,
+    })
     if (e.target.value !== '') {
       setCommentIsValid(true)
       if (commentIsTouched) {
@@ -116,20 +135,23 @@ const Register = (props) => {
   }
 
   const reset = () => {
-    setName('')
+    // console.log(newComment)
+    // setName('')
     setNameIsValid(false)
     setNameIsTouched(false)
     setEmail('')
     setEmailIsValid(false)
     setEmailIsTouched(false)
-    setComment('')
+    // setComment('')
     setCommentIsValid(false)
     setCommentIsTouched(false)
     resetClass()
+    setNewComment(commentObj)
   }
 
-  const onSubmitHandler = event => {
-    event.preventDefault()
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    props.onSubmit(newComment)
     if (!formIsValid) {
       setNameIsTouched(true)
       setEmailIsTouched(true)
@@ -139,8 +161,19 @@ const Register = (props) => {
       invalidClass(setCommentInputClass)
       return
     }
+    // console.log(newComment)
     reset()
   }
+
+  // const onClickSubmit = () => {
+  //   setNameIsTouched(true)
+  //   setEmailIsTouched(true)
+  //   setCommentIsTouched(true)
+  //   invalidClass(setNameInputClass)
+  //   invalidClass(setEmailInputClass)
+  //   invalidClass(setCommentInputClass)
+  //   reset()
+  // }
   
   return (
     <form className={style['comment-form']} onSubmit={onSubmitHandler}>
@@ -150,7 +183,8 @@ const Register = (props) => {
           type='text'
           id='k-name'
           placeholder='Name'
-          value={name}
+          // value={name}
+          value={newComment.author}
           onChange={nameChangeHandler}
           onBlur={onNameBlurHandler} />
         {!nameIsValid && nameIsTouched && <p className={style['error-text']}>Wajib diisi</p>}
@@ -170,7 +204,8 @@ const Register = (props) => {
           type='komentar'
           id='komentar'
           placeholder='Komentar anda'
-          value={comment}
+          // value={comment}
+          value={newComment.message}
           onChange={commentChangeHandler}
           onBlur={onCommentBlurHandler}>
         </textarea>
@@ -184,4 +219,4 @@ const Register = (props) => {
   )
 }
 
-export default Register
+export default Comment
