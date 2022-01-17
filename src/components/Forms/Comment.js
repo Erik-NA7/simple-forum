@@ -3,7 +3,6 @@ import style from './Form.module.css'
 
 const Comment = (props) => {
 
-  // const [ name, setName ] = useState('')
   const [ nameIsTouched, setNameIsTouched ] = useState(false)
   const [ nameIsValid, setNameIsValid ] = useState(false)
 
@@ -21,7 +20,6 @@ const Comment = (props) => {
     replies: []
   }
 
-  // const [ comment, setComment ] = useState('')
   const [ commentIsTouched, setCommentIsTouched ] = useState(false)
   const [ commentIsValid,  setCommentIsValid ] = useState(false)
 
@@ -50,7 +48,6 @@ const Comment = (props) => {
   }
 
   const nameChangeHandler = (e) => {
-    // setName(e.target.value)
     setNewComment({
       ...newComment,
       author: e.target.value,
@@ -135,14 +132,11 @@ const Comment = (props) => {
   }
 
   const reset = () => {
-    // console.log(newComment)
-    // setName('')
     setNameIsValid(false)
     setNameIsTouched(false)
     setEmail('')
     setEmailIsValid(false)
     setEmailIsTouched(false)
-    // setComment('')
     setCommentIsValid(false)
     setCommentIsTouched(false)
     resetClass()
@@ -161,19 +155,8 @@ const Comment = (props) => {
       invalidClass(setCommentInputClass)
       return
     }
-    // console.log(newComment)
     reset()
   }
-
-  // const onClickSubmit = () => {
-  //   setNameIsTouched(true)
-  //   setEmailIsTouched(true)
-  //   setCommentIsTouched(true)
-  //   invalidClass(setNameInputClass)
-  //   invalidClass(setEmailInputClass)
-  //   invalidClass(setCommentInputClass)
-  //   reset()
-  // }
   
   return (
     <form className={style['comment-form']} onSubmit={onSubmitHandler}>

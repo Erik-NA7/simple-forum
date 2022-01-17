@@ -8,7 +8,6 @@ import style from '../components/Post.module.css'
 function Home() {
   const [ featuredPost, setFeaturedPost ] = useState({})
   const [ posts, setPosts ] = useState([])
-  // const [ newComment, setNewComment ] = useState('')
 
   const dateTimeFormat = (dateString) => {
     const dates = new Date(dateString)
