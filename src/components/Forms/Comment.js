@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import style from './Form.module.css'
+import { useState } from 'react';
+import style from './Form.module.css';
 
 const Comment = (props) => {
 
-  const [ nameIsTouched, setNameIsTouched ] = useState(false)
-  const [ nameIsValid, setNameIsValid ] = useState(false)
+  const [ nameIsTouched, setNameIsTouched ] = useState(false);
+  const [ nameIsValid, setNameIsValid ] = useState(false);
 
-  const [ email, setEmail ] = useState('')
-  const [ emailIsTouched, setEmailIsTouched ] = useState(false)
-  const [ emailIsValid, setEmailIsValid ] = useState(false)
+  const [ email, setEmail ] = useState('');
+  const [ emailIsTouched, setEmailIsTouched ] = useState(false);
+  const [ emailIsValid, setEmailIsValid ] = useState(false);
 
   const commentObj = {
     id: "fa1ca3c1-cc1e-4ed9-86b8-f60d8312d499",
@@ -18,34 +18,34 @@ const Comment = (props) => {
     message: "",
     point: 0,
     replies: []
-  }
+  };
 
-  const [ commentIsTouched, setCommentIsTouched ] = useState(false)
-  const [ commentIsValid,  setCommentIsValid ] = useState(false)
+  const [ commentIsTouched, setCommentIsTouched ] = useState(false);
+  const [ commentIsValid,  setCommentIsValid ] = useState(false);
 
-  const [ newComment, setNewComment ] = useState(commentObj)
+  const [ newComment, setNewComment ] = useState(commentObj);
 
-  const [ nameInputClass, setNameInputClass] = useState(style['form-control'])
-  const [ emailInputClass, setEmailInputClass] = useState(style['form-control'])
-  const [ commentInputClass, setCommentInputClass] = useState(style['form-control'])
+  const [ nameInputClass, setNameInputClass] = useState(style['form-control']);
+  const [ emailInputClass, setEmailInputClass] = useState(style['form-control']);
+  const [ commentInputClass, setCommentInputClass] = useState(style['form-control']);
 
   const checkEmail = (value) => {
-    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)
+    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
   }
 
   const invalidClass = (setState) => {
-    setState(`${style['form-control']} ${style['invalid']}`)
+    setState(`${style['form-control']} ${style['invalid']}`);
   }
 
   const validClass = (setState) => {
-    setState(`${style['form-control']} ${style['valid']}`)
+    setState(`${style['form-control']} ${style['valid']}`);
   }
 
   const resetClass = () => {
-    setNameInputClass(style['form-control'])
-    setEmailInputClass(style['form-control'])
-    setCommentInputClass(style['form-control'])  
-  }
+    setNameInputClass(style['form-control']);
+    setEmailInputClass(style['form-control']);
+    setCommentInputClass(style['form-control']);
+  };
 
   const nameChangeHandler = (e) => {
     setNewComment({
@@ -53,110 +53,110 @@ const Comment = (props) => {
       author: e.target.value,
     })
     if (e.target.value !== '') {
-      setNameIsValid(true)
+      setNameIsValid(true);
       if (nameIsTouched) {
-        validClass(setNameInputClass)
-      } 
+        validClass(setNameInputClass);
+      }; 
     } else {
-      setNameIsValid(false)
+      setNameIsValid(false);
       if (nameIsTouched) {
-        invalidClass(setNameInputClass)
-      }
-    }
-  }
+        invalidClass(setNameInputClass);
+      };
+    };
+  };
 
   const emailChangeHandler = (e) => {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
     if (!checkEmail(e.target.value)) {
-      setEmailIsValid(false)
+      setEmailIsValid(false);
       if (emailIsTouched) {
-        invalidClass(setEmailInputClass)
-      } 
+        invalidClass(setEmailInputClass);
+      }; 
     } else {
-      setEmailIsValid(true)
+      setEmailIsValid(true);
       if (emailIsTouched) {
-        validClass(setEmailInputClass)
-      }
-    }
-  }
+        validClass(setEmailInputClass);
+      };
+    };
+  };
 
   const commentChangeHandler = (e) => {
     setNewComment({
       ...newComment,
       message: e.target.value,
-    })
+    });
     if (e.target.value !== '') {
-      setCommentIsValid(true)
+      setCommentIsValid(true);
       if (commentIsTouched) {
-        validClass(setCommentInputClass)
-      }
+        validClass(setCommentInputClass);
+      };
     } else {
-      setCommentIsValid(false)
+      setCommentIsValid(false);
       if (commentIsTouched) {
-        invalidClass(setCommentInputClass)
-      }
-    }
-  }
+        invalidClass(setCommentInputClass);
+      };
+    };
+  };
 
   const onNameBlurHandler = (e) => {
-    setNameIsTouched(true)
+    setNameIsTouched(true);
     if (!nameIsValid) {
-      invalidClass(setNameInputClass)
+      invalidClass(setNameInputClass);
     } else {
-      validClass(setNameInputClass)
-    }
-  }
+      validClass(setNameInputClass);
+    };
+  };
 
   const onEmailBlurHandler = (e) => {
-    setEmailIsTouched(true)
+    setEmailIsTouched(true);
     if (!emailIsValid) {
-      invalidClass(setEmailInputClass)
+      invalidClass(setEmailInputClass);
     } else {
-      validClass(setEmailInputClass)
-    }
-  }
+      validClass(setEmailInputClass);
+    };
+  };
 
   const onCommentBlurHandler = (e) => {
-    setCommentIsTouched(true)
+    setCommentIsTouched(true);
     if (!commentIsValid) {
-      invalidClass(setCommentInputClass)
+      invalidClass(setCommentInputClass);
     } else {
-      validClass(setCommentInputClass)
-    }
-  }
+      validClass(setCommentInputClass);
+    };
+  };
 
-  let formIsValid = false
+  let formIsValid = false;
 
   if (nameIsValid && emailIsValid && commentIsValid) {
-    formIsValid = true
-  }
+    formIsValid = true;
+  };
 
   const reset = () => {
-    setNameIsValid(false)
-    setNameIsTouched(false)
-    setEmail('')
-    setEmailIsValid(false)
-    setEmailIsTouched(false)
-    setCommentIsValid(false)
-    setCommentIsTouched(false)
-    resetClass()
-    setNewComment(commentObj)
+    setNameIsValid(false);
+    setNameIsTouched(false);
+    setEmail('');
+    setEmailIsValid(false);
+    setEmailIsTouched(false);
+    setCommentIsValid(false);
+    setCommentIsTouched(false);
+    resetClass();
+    setNewComment(commentObj);
   }
 
   const onSubmitHandler = (e) => {
-    e.preventDefault()
-    props.onSubmit(newComment)
+    e.preventDefault();
+    props.onSubmit(newComment);
     if (!formIsValid) {
-      setNameIsTouched(true)
-      setEmailIsTouched(true)
-      setCommentIsTouched(true)
-      invalidClass(setNameInputClass)
-      invalidClass(setEmailInputClass)
-      invalidClass(setCommentInputClass)
-      return
-    }
-    reset()
-  }
+      setNameIsTouched(true);
+      setEmailIsTouched(true);
+      setCommentIsTouched(true);
+      invalidClass(setNameInputClass);
+      invalidClass(setEmailInputClass);
+      invalidClass(setCommentInputClass);
+      return;
+    };
+    reset();
+  };
   
   return (
     <form className={style['comment-form']} onSubmit={onSubmitHandler}>
@@ -166,7 +166,6 @@ const Comment = (props) => {
           type='text'
           id='k-name'
           placeholder='Name'
-          // value={name}
           value={newComment.author}
           onChange={nameChangeHandler}
           onBlur={onNameBlurHandler} />
@@ -187,7 +186,6 @@ const Comment = (props) => {
           type='komentar'
           id='komentar'
           placeholder='Komentar anda'
-          // value={comment}
           value={newComment.message}
           onChange={commentChangeHandler}
           onBlur={onCommentBlurHandler}>
@@ -202,4 +200,4 @@ const Comment = (props) => {
   )
 }
 
-export default Comment
+export default Comment;

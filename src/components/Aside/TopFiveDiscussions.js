@@ -1,9 +1,9 @@
-import style from './Aside.module.css'
+import style from './Aside.module.css';
 
 function TopFiveDiscussions(props) {
   return (
     <aside className={style.aside}>
-      <h4>Diskusi 5 teratas</h4>
+      <h4>5 Diskusi teratas</h4>
       <div>
         {props.data && props.data.map((post, id) => {
           return (
@@ -19,4 +19,4 @@ function TopFiveDiscussions(props) {
   )
 }
 
-export default TopFiveDiscussions
+export default TopFiveDiscussions;

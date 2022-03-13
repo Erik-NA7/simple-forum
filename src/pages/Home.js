@@ -1,19 +1,19 @@
-import { useState, useEffect} from 'react'
-import TopFiveDiscussions from '../components/Aside/TopFiveDiscussions'
-import Comment from '../components/Comment/Comment'
-import CommentForm from '../components/Forms/Comment'
-import baseURL from '../api/apiconfig'
-import style from '../components/Post.module.css'
+import { useState, useEffect} from 'react';
+import TopFiveDiscussions from '../components/Aside/TopFiveDiscussions';
+import Comment from '../components/Comment/Comment';
+import CommentForm from '../components/Forms/Comment';
+import baseURL from '../api/apiconfig';
+import style from '../components/Post.module.css';
 
 function Home() {
-  const [ featuredPost, setFeaturedPost ] = useState({})
-  const [ posts, setPosts ] = useState([])
+  const [ featuredPost, setFeaturedPost ] = useState({});
+  const [ posts, setPosts ] = useState([]);
 
   const dateTimeFormat = (dateString) => {
-    const dates = new Date(dateString)
-    const date = new Intl.DateTimeFormat('en-GB', {dateStyle: 'long'}).format(dates)
-    const time = `${dates.getHours()}:${dates.getMinutes()}`
-    return(`${date} ${time}`)
+    const dates = new Date(dateString);
+    const date = new Intl.DateTimeFormat('en-GB', {dateStyle: 'long'}).format(dates);
+    const time = `${dates.getHours()}:${dates.getMinutes()}`;
+    return(`${date} ${time}`);
   }
 
   const onSubmit = (newComment) => {
@@ -23,31 +23,31 @@ function Home() {
         ...featuredPost.comments,
         newComment
       ]
-    })
-    console.log(featuredPost)
-    console.log(newComment)
-  }
+    });
+    console.log(featuredPost);
+    console.log(newComment);
+  };
 
   useEffect(() => {
     const getData = async() => {
-      const response = await fetch(baseURL)
+      const response = await fetch(baseURL);
       if (!response.ok) {
         throw new Error('Something went wrong')
-      }
-      const data = await response.json()
-      setFeaturedPost(data[0])
-      setPosts(data.slice(1, 6))
+      };
+      const data = await response.json();
+      setFeaturedPost(data[0]);
+      setPosts(data.slice(1, 6));
     }
 
     try {
-      getData()
+      getData();
     } catch(error) {
-      alert(error.message)
-    }    
+      alert(error.message);
+    };
     return () => {
-      getData()
-    }
-  }, [])
+      getData();
+    };
+  }, []);
 
   return (
     <div className='container content'>
@@ -57,7 +57,7 @@ function Home() {
             <h1>{featuredPost.title}</h1>  
             <p>{featuredPost.body}</p>
           </div>          
-          <h3>Komentar</h3>
+          <h2>Komentar</h2>
           {featuredPost.comments &&
             <div className={style['comment-container']}>
               {featuredPost.comments.map((comment, idx) => {

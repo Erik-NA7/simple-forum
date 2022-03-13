@@ -4,23 +4,24 @@ import Header from './components/Header/Header';
 import Home from './pages/Home';
 import { useState } from 'react';
 import './App.css';
+
 const Login = loadable(() => import('./components/Forms/Login'));
 const Register = loadable(() => import('./components/Forms/Register'));
 
-Modal.setAppElement('#root')
+Modal.setAppElement('#root');
 
 function App() {
 
-  const [loginIsOpen, setLoginIsOpen] = useState(false)
-  const [registerIsOpen, setRegisterIsOpen] = useState(false)
+  const [loginIsOpen, setLoginIsOpen] = useState(false);
+  const [registerIsOpen, setRegisterIsOpen] = useState(false);
 
   const loginHandler = () => {
-    setLoginIsOpen(!loginIsOpen)
-  }
+    setLoginIsOpen(!loginIsOpen);
+  };
 
   const registerHandler = () => {
-    setRegisterIsOpen(!registerIsOpen)
-  }
+    setRegisterIsOpen(!registerIsOpen);
+  };
 
   return (
     <div className="App">
@@ -38,6 +39,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;

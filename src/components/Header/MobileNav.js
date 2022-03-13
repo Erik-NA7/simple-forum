@@ -1,24 +1,24 @@
 
-import WindowClose from '../Icons/WindowClose'
-import Modal from 'react-modal'
-import style from './Mobilenav.module.css'
-import { FaSearch } from 'react-icons/fa'
-import { useState } from 'react'
+import WindowClose from '../Icons/WindowClose';
+import Modal from 'react-modal';
+import style from './Mobilenav.module.css';
+import { FaSearch } from 'react-icons/fa';
+import { useState } from 'react';
 
 function MobileNav(props) {
 
-  const [ searchString, setSearchString ] = useState('')
+  const [ searchString, setSearchString ] = useState('');
 
   const searchHandler = (e) => {
-    setSearchString(e.target.value)
-  }
+    setSearchString(e.target.value);
+  };
 
   const onSearch = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchString.trim() === '') {
-      alert(`Ketik item pencarian`)
-    }
-  }
+      alert(`Ketik item pencarian`);
+    };
+  };
   
   return (
     <Modal
@@ -59,7 +59,7 @@ function MobileNav(props) {
         </div>
       </div >
     </Modal>
-  )
-}
+  );
+};
 
-export default MobileNav
+export default MobileNav;

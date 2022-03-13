@@ -1,108 +1,108 @@
 import { useState } from 'react';
 import WindowClose from '../Icons/WindowClose';
-import Modal from 'react-modal'
-import style from './Form.module.css'
+import Modal from 'react-modal';
+import style from './Form.module.css';
 
 const Login = (props) => {
-  const [ email, setEmail ] = useState('')
-  const [ emailIsTouched, setEmailIsTouched ] = useState(false)
-  const [ emailIsValid, setEmailIsValid ] = useState(false)
-  const [ password, setPassword ] = useState('')
-  const [ passwordIsTouched, setPasswordIsTouched ] = useState(false)
-  const [ passwordIsValid,  setPasswordIsValid ] = useState(false)
-  const [ emailInputClass, setEmailInputClass] = useState(style['form-control'])
-  const [ passwordInputClass, setPasswordInputClass] = useState(style['form-control'])
+  const [ email, setEmail ] = useState('');
+  const [ emailIsTouched, setEmailIsTouched ] = useState(false);
+  const [ emailIsValid, setEmailIsValid ] = useState(false);
+  const [ password, setPassword ] = useState('');
+  const [ passwordIsTouched, setPasswordIsTouched ] = useState(false);
+  const [ passwordIsValid,  setPasswordIsValid ] = useState(false);
+  const [ emailInputClass, setEmailInputClass] = useState(style['form-control']);
+  const [ passwordInputClass, setPasswordInputClass] = useState(style['form-control']);
 
   const checkEmail = (value) => {
-    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)
-  }
+    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
+  };
 
   const invalidClass = (setState) => {
-    setState(`${style['form-control']} ${style['invalid']}`)
-  }
+    setState(`${style['form-control']} ${style['invalid']}`);
+  };
 
   const validClass = (setState) => {
-    setState(`${style['form-control']} ${style['valid']}`)
-  }
+    setState(`${style['form-control']} ${style['valid']}`);
+  };
 
   const resetClass = () => {
-    setEmailInputClass(style['form-control'])
-    setPasswordInputClass(style['form-control'])
-  }
+    setEmailInputClass(style['form-control']);
+    setPasswordInputClass(style['form-control']);
+  };
 
   const emailChangeHandler = (e) => {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
     if (!checkEmail(e.target.value)) {
-      setEmailIsValid(false)
+      setEmailIsValid(false);
       if (emailIsTouched) {
-        invalidClass(setEmailInputClass)
-      } 
+        invalidClass(setEmailInputClass);
+      }; 
     } else {
-      setEmailIsValid(true)
+      setEmailIsValid(true);
       if (emailIsTouched) {
-        validClass(setEmailInputClass)
-      }
-    }
-  }
+        validClass(setEmailInputClass);
+      };
+    };
+  };
 
   const paswordChangeHandler = (e) => {
-    setPassword(e.target.value)
+    setPassword(e.target.value);
     if (e.target.value.trim() !== '') {
-      setPasswordIsValid(true)
+      setPasswordIsValid(true);
       if (passwordIsTouched) {
-        validClass(setPasswordInputClass)
-      }
+        validClass(setPasswordInputClass);
+      };
     } else {
-      setPasswordIsValid(false)
+      setPasswordIsValid(false);
       if (passwordIsTouched) {
-        invalidClass(setPasswordInputClass)
-      }
-    }
-  }
+        invalidClass(setPasswordInputClass);
+      };
+    };
+  };
 
   const onEmailBlurHandler = (e) => {
-    setEmailIsTouched(true)
+    setEmailIsTouched(true);
     if (!emailIsValid) {
-      invalidClass(setEmailInputClass)
+      invalidClass(setEmailInputClass);
     } else {
-      validClass(setEmailInputClass)
-    }
-  }
+      validClass(setEmailInputClass);
+    };
+  };
 
   const onPaswordBlurHandler = (e) => {
-    setPasswordIsTouched(true)
+    setPasswordIsTouched(true);
     if (!passwordIsValid) {
-      invalidClass(setPasswordInputClass)
+      invalidClass(setPasswordInputClass);
     } else {
-      validClass(setPasswordInputClass)
-    }
-  }
+      validClass(setPasswordInputClass);
+    };
+  };
 
-  let formIsValid = false
+  let formIsValid = false;
   
   if (emailIsValid && passwordIsValid) {
-    formIsValid = true
-  }
+    formIsValid = true;
+  };
 
   const onSubmitHandler = event => {
-    event.preventDefault()
+    event.preventDefault();
     
     if (!formIsValid) {
-      setEmailIsTouched(true)
-      setPasswordIsTouched(true)
-      invalidClass(setEmailInputClass)
-      invalidClass(setPasswordInputClass)
+      setEmailIsTouched(true);
+      setPasswordIsTouched(true);
+      invalidClass(setEmailInputClass);
+      invalidClass(setPasswordInputClass);
       return
-    }
+    };
 
-    setEmail('')
-    setEmailIsValid(false)
-    setEmailIsTouched(false)
-    setPassword('')
-    setPasswordIsValid(false)
-    setPasswordIsTouched(false)
-    resetClass()
-  }
+    setEmail('');
+    setEmailIsValid(false);
+    setEmailIsTouched(false);
+    setPassword('');
+    setPasswordIsValid(false);
+    setPasswordIsTouched(false);
+    resetClass();
+  };
   
   return (
     <Modal

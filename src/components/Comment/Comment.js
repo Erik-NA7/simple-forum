@@ -1,31 +1,31 @@
-import { useState } from 'react'
-import { FaArrowDown } from 'react-icons/fa'
-import { FaArrowUp } from 'react-icons/fa'
-import style from '../Post.module.css'
+import { useState } from 'react';
+import { FaArrowDown } from 'react-icons/fa';
+import { FaArrowUp } from 'react-icons/fa';
+import style from '../Post.module.css';
 
 function Comment(props) {
 
   const arrowIconStyle = {
-    width: '.9em', height: '.9em', strokeWidth: '30'
-  }
+    width: '.9em', height: '.9em', strokeWidth: '30', margin: 'auto'
+  };
 
-  const [ upVoteClass, setUpVoteClass ] = useState(style['upvote-btn'])
-  const [ downVoteClass, setDownVoteClass ] = useState(style['downvote-btn'])
-  const [ hasVoted, setHasVoted ] = useState(false)
+  const [ upVoteClass, setUpVoteClass ] = useState(style['upvote-btn']);
+  const [ downVoteClass, setDownVoteClass ] = useState(style['downvote-btn']);
+  const [ hasVoted, setHasVoted ] = useState(false);
 
-  const [points, setPoints] = useState(props.point)
+  const [points, setPoints] = useState(props.point);
 
   const pointsUp = () => {
-    setPoints(points + 1)
-    setUpVoteClass(style.upvoted)
-    setHasVoted(true)
-  }
+    setPoints(points + 1);
+    setUpVoteClass(style.upvoted);
+    setHasVoted(true);
+  };
   
   const pointsDown = () => {
-    setPoints(points - 1)
-    setDownVoteClass(style.downvoted)
-    setHasVoted(true)
-  }
+    setPoints(points - 1);
+    setDownVoteClass(style.downvoted);
+    setHasVoted(true);
+  };
   
   return (
     <div className={style.comment}>
@@ -39,12 +39,14 @@ function Comment(props) {
         <div className={style['vote-action']}>
           <p className={style.point}>{points} point</p>
           <button
+            aria-label='upvote current post or comment'
             className={upVoteClass}
             onClick={pointsUp}
             disabled={hasVoted}>
             <FaArrowUp style={arrowIconStyle}/>
           </button>
           <button
+            aria-label='downvote current post or comment'
             className={downVoteClass}
             onClick={pointsDown}
             disabled={hasVoted}>
@@ -54,7 +56,7 @@ function Comment(props) {
         {props.children}
       </div>
     </div>    
-  )
-}
+  );
+};
 
-export default Comment
+export default Comment;
